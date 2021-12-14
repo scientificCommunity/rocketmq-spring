@@ -631,6 +631,11 @@ public class RocketMQTemplate extends AbstractMessageSendingTemplate<String> imp
         return syncSend(destination, message, timeout);
     }
 
+    public SendResult syncSend(long startToDeliverTime, String destination, Object payload) {
+        Message<?> message = MessageBuilder.withPayload(payload).build();
+        return syncSend(startToDeliverTime, destination, message);
+    }
+
     /**
      * Same to {@link #syncSend(String, Message)} with send orderly with hashKey by specified.
      *
