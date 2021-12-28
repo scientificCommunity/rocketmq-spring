@@ -498,7 +498,7 @@ public class RocketMQTemplate extends AbstractMessageSendingTemplate<String> imp
      * @return {@link SendResult}
      */
     public SendResult syncSend(long startToDeliverTime, String destination, Message<?> message) {
-        return syncSend(destination, message, producer.getSendMsgTimeout(), 0);
+        return syncSend(destination, message, producer.getSendMsgTimeout(), 0, startToDeliverTime);
     }
 
     /**
